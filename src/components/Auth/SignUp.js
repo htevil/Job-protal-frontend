@@ -11,7 +11,7 @@ const SignUp = () => {
     const handleRegister = async (data) => {
         const { name, email, password } = data;
         try {
-            await axios.post('http://localhost:5000/api/users/signup', { name, email, password });
+            await axios.post('https://job-partal-backend.onrender.com/api/users/signup', { name, email, password });
             toast.success('Registration successful!');
             navigate('/');
         } catch (error) {

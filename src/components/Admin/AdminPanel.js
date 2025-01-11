@@ -14,7 +14,7 @@ const AdminPanel = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/admin/users');
+            const response = await axios.get('https://job-partal-backend.onrender.com/api/admin/users');
             setUsers(response.data);
         } catch (err) {
             setError('Failed to fetch users');
@@ -27,7 +27,7 @@ const AdminPanel = () => {
     const handleCreateUser = async (data) => {
         const { name, email, password } = data; // Destructure data from form submission
         try {
-            await axios.post('http://localhost:5000/api/admin/users', { name, email, password });
+            await axios.post('https://job-partal-backend.onrender.com/api/admin/users', { name, email, password });
             toast.success('User  created successfully');
             setFormVisible(false);
             fetchUsers(); // Refresh the user list
@@ -39,7 +39,7 @@ const AdminPanel = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/admin/users/${id}`);
+                await axios.delete(`https://job-partal-backend.onrender.com/api/admin/users/${id}`);
                 toast.success('User  deleted successfully');
                 setUsers(users.filter(user => user.id !== id));
             } catch (err) {
@@ -50,7 +50,7 @@ const AdminPanel = () => {
 
     const handleViewCV = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/admin/cv/${id}`, {
+            const response = await axios.get(`https://job-partal-backend.onrender.com/api/admin/cv/${id}`, {
                 responseType: 'blob' // Important for handling file downloads
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));

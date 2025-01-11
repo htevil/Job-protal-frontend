@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+            const response = await axios.post('https://job-partal-backend.onrender.com/api/users/login', { email, password });
             const { token, userId } = response.data;
 
             // Store the token and update context

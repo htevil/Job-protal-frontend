@@ -17,7 +17,7 @@ const AdminLogin = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/login', { email, password });
+            const response = await axios.post('https://job-partal-backend.onrender.com/api/admin/login', { email, password });
             localStorage.setItem('adminToken', response.data.token); // Store the token
             login(response.data.token); // Update the auth context
             toast.success('Admin login successful');

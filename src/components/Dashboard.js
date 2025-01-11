@@ -25,7 +25,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/users/${userId}`);
+                const response = await axios.get(`https://job-partal-backend.onrender.com/api/users/${userId}`);
                 setUserName(response.data.name);
                 setUserEmail(response.data.email);
                 setInterest(response.data.interest || '');
@@ -58,7 +58,7 @@ const Dashboard = () => {
         formData.append('college', college);
 
         try {
-            await axios.post(`http://localhost:5000/api/users/details/${userId}`, formData, {
+            await axios.post(`https://job-partal-backend.onrender.com/api/users/details/${userId}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             alert('Information uploaded successfully');
